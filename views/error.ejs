@@ -1,0 +1,12 @@
+<% layout("layouts/boilerplate") %>
+<div class="d-flex align-items-start justify-content-center vh-100">
+    <div class="col-6">
+        <div class="alert alert-danger text-center" role="alert">
+            <h4 class="alert-heading"><%= err.message %></h4>
+            <% if(process.env.NODE_env !== "production") { %>
+            <p><%= err.stack %></p>
+            <% } %>
+        </div>
+    </div>
+</div>
+
