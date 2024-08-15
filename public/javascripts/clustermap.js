@@ -17,7 +17,7 @@ function initializeMap() {
 
     campgrounds.forEach(function (campground) {
         var coordinates = campground.geometry.coordinates;
-        var marker = L.marker([coordinates[0], coordinates[1]]); // Note: Leaflet expects [latitude, longitude]
+        var marker = L.marker([coordinates[1], coordinates[0]]); // Note: Leaflet expects [latitude, longitude]
 
         var popupContent = `<a href = "/campgrounds/${campground._id}"> <h5> ${campground.title} </h5> </a> <b>Location:</b> ${campground.location}<br>
          <b>Price:</b> $${campground.price}<br>

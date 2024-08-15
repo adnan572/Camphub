@@ -1,5 +1,5 @@
 
-const coordinates = [campground.geometry.coordinates[0], campground.geometry.coordinates[1]];
+const coordinates = [campground.geometry.coordinates[1], campground.geometry.coordinates[0]];
 const map = L.map('map').setView(coordinates, 13);
   L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
