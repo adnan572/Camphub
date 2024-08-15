@@ -26,7 +26,7 @@ module.exports.renderEditForm = async(req,res)=>{
 
 module.exports.createCampground = async(req,res)=>{
     //if(!req.body.campground) throw new ExpressError("invalid Campground Data",404)
-    const response = await fetch(`https://api.geoapify.com/v1/geocode/search?text=${req.body.campground.location}&apiKey=${process.env.MAP_TOKEN}`, requestOptions)
+    const response = await fetch(`https://api.geoapify.com/v1/geocode/search?text=${req.body.campground.location}&apiKey=${process.env.MAP_TOKEN}`)
     const data = await response.json()
 
     if (data.features && data.features.length > 0) {
