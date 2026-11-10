@@ -16,7 +16,7 @@ module.exports.register = async(req,res)=>{
                  return next(err)
                 }
     
-     req.flash("success","welcome to yelpcamp")
+     req.flash("success","welcome to CampHub")
     res.redirect("/campgrounds")
             
         }) 
