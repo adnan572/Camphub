@@ -1,10 +1,10 @@
 <% layout('layouts/boilerplate') %>
 <link rel="stylesheet" href="/stylesheets/star.css">
 
-<div class="row g-4">
+<div class="row g-3 g-md-4">
    <!-- Left Column: Carousel & Details -->
    <div class="col-lg-7">
-      <div class="show-card mb-4">
+      <div class="show-card mb-3 mb-md-4">
          <% if (campground.images && campground.images.length) { %>
             <div id="campgroundCarousel" class="carousel slide show-carousel mb-0" data-bs-ride="carousel">
                <div class="carousel-inner">
@@ -31,32 +31,32 @@
             </div>
          <% } %>
 
-         <div class="card-body p-4">
+         <div class="card-body p-3 p-sm-4">
             <div class="d-flex align-items-baseline justify-content-between flex-wrap gap-2 mb-2">
                <h1 class="h2 fw-bold text-dark mb-0"><%= campground.title %></h1>
                <span class="fs-5 fw-bold text-dark">$<%= campground.price %><small class="text-muted fw-normal fs-6">/night</small></span>
             </div>
 
             <p class="text-muted mb-3"><%= campground.location %></p>
-            <p class="card-text text-secondary mb-4" style="line-height: 1.65;"><%= campground.description %></p>
+            <p class="card-text text-secondary mb-3 mb-sm-4" style="line-height: 1.65;"><%= campground.description %></p>
          </div>
 
          <ul class="list-group list-group-flush border-top">
-            <li class="list-group-item text-secondary py-3 px-4">
+            <li class="list-group-item text-secondary py-2 py-sm-3 px-3 px-sm-4">
                Submitted by <span class="fw-semibold text-dark"><%= campground.author.username %></span>
             </li>
          </ul>
 
          <% if(currentUser && campground.author.equals(currentUser._id)) { %>
-            <div class="card-body p-4 bg-light border-top d-flex gap-2">
-               <a href="/campgrounds/<%= campground._id %>/edit" class="btn btn-warning">Edit</a>
-               <form class="d-inline" action="/campgrounds/<%= campground._id %>?_method=DELETE" method="post">
-                  <button class="btn btn-danger">Delete</button>
+            <div class="card-body p-3 p-sm-4 bg-light border-top d-flex flex-wrap gap-2">
+               <a href="/campgrounds/<%= campground._id %>/edit" class="btn btn-warning flex-fill flex-sm-grow-0">Edit</a>
+               <form class="d-inline flex-fill flex-sm-grow-0" action="/campgrounds/<%= campground._id %>?_method=DELETE" method="post">
+                  <button class="btn btn-danger w-100">Delete</button>
                </form>
             </div>
          <% } %>
 
-         <div class="card-footer bg-white text-muted px-4 py-3">
+         <div class="card-footer bg-white text-muted px-3 px-sm-4 py-3">
             <a href="/campgrounds" class="text-decoration-none small text-dark fw-medium">
                &larr; Back to Campgrounds
             </a>
@@ -67,11 +67,11 @@
    <!-- Right Column: Map & Reviews -->
    <div class="col-lg-5">
       <!-- Map -->
-      <div id="map" style="width: 100%; height: 260px;" class="mb-4"></div>
+      <div id="map" class="show-map mb-3 mb-md-4"></div>
 
       <!-- Leave a Review Form -->
       <% if(currentUser) { %>
-         <div class="card show-card mb-4 p-4">
+         <div class="card show-card mb-3 mb-md-4 p-3 p-sm-4">
             <h5 class="fw-bold text-dark mb-3">Leave a Review</h5>
             <form action="/campgrounds/<%= campground._id %>/reviews" class="validated-form" method="post" novalidate>
                <div class="mb-3">
@@ -94,11 +94,11 @@
                   <textarea class="form-control" name="review[body]" id="body" rows="3" required></textarea>
                   <div class="valid-feedback">Looks good!</div>
                </div>
-               <button class="btn btn-camp-primary">Submit Review</button>
+               <button class="btn btn-camp-primary w-100 w-sm-auto">Submit Review</button>
             </form>
          </div>
       <% } else { %>
-         <div class="card show-card mb-4 p-4 text-center bg-white">
+         <div class="card show-card mb-3 mb-md-4 p-3 p-sm-4 text-center bg-white">
             <p class="text-secondary mb-3">Have you visited <%= campground.title %>?</p>
             <div>
                <a href="/login" class="btn btn-sm btn-camp-primary">Log in to leave a review</a>

@@ -15,22 +15,29 @@
 <body>
 
     <div class="home-container">
-        <!-- Minimal Header Navigation -->
+        <!-- Responsive Header Navigation -->
         <header class="home-nav-wrapper">
-            <div class="d-flex justify-content-between align-items-center">
-                <a href="/" class="home-brand">CampHub</a>
-                <nav class="d-flex align-items-center gap-1">
-                    <a class="home-nav-link active" href="/">Home</a>
-                    <a class="home-nav-link" href="/campgrounds">Campgrounds</a>
-                    <% if(!currentUser) { %>
-                        <a href="/login" class="home-nav-link">Login</a>
-                        <a href="/register" class="home-nav-link home-nav-btn">Sign Up</a>
-                    <% } else { %>
-                        <a href="/campgrounds/new" class="home-nav-link d-none d-sm-inline">New Spot</a>
-                        <a href="/logout" class="home-nav-link home-nav-btn">Logout (<%= currentUser.username %>)</a>
-                    <% } %>
-                </nav>
-            </div>
+            <nav class="navbar navbar-expand-md p-0" data-bs-theme="dark">
+                <div class="container-fluid p-0">
+                    <a href="/" class="home-brand">CampHub</a>
+                    <button class="navbar-toggler border-0 shadow-none px-2" type="button" data-bs-toggle="collapse" data-bs-target="#homeNav" aria-controls="homeNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="homeNav">
+                        <div class="d-flex flex-column flex-md-row align-items-md-center gap-1 ms-auto pt-3 pt-md-0 w-100 w-md-auto">
+                            <a class="home-nav-link active" href="/">Home</a>
+                            <a class="home-nav-link" href="/campgrounds">Campgrounds</a>
+                            <% if(!currentUser) { %>
+                                <a href="/login" class="home-nav-link">Login</a>
+                                <a href="/register" class="home-nav-link home-nav-btn text-center mt-1 mt-md-0">Sign Up</a>
+                            <% } else { %>
+                                <a href="/campgrounds/new" class="home-nav-link">New Spot</a>
+                                <a href="/logout" class="home-nav-link home-nav-btn text-center mt-1 mt-md-0">Logout (<%= currentUser.username %>)</a>
+                            <% } %>
+                        </div>
+                    </div>
+                </div>
+            </nav>
         </header>
 
         <!-- Minimalist Hero Section -->

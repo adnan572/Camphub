@@ -5,7 +5,7 @@ if (typeof L === 'undefined') {
 
 // Initialize the map and clusters
 function initializeMap() {
-    var map = L.map('map').setView([37.0870821, -76.4730122], 4);
+    var map = L.map('map', { scrollWheelZoom: false }).setView([37.0870821, -76.4730122], 4);
     // Add the base layer
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

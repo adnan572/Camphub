@@ -3,11 +3,11 @@
     <a class="navbar-brand" href="/campgrounds">
       <span>CampHub</span>
     </a>
-    <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler border-0 shadow-none px-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 py-2 py-lg-0">
         <li class="nav-item">
           <a class="nav-link <%= (typeof currentRoute !== 'undefined' && currentRoute === '/') ? 'active fw-semibold text-white' : '' %>" href="/">
             Home
@@ -24,26 +24,26 @@
           </a>
         </li>
       </ul>
-      <ul class="navbar-nav ms-auto align-items-lg-center gap-1">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-2 pt-2 pt-lg-0 border-top border-lg-0 border-secondary">
         <% if(!currentUser) { %>
           <li class="nav-item">
             <a class="nav-link <%= (typeof currentRoute !== 'undefined' && currentRoute === '/login') ? 'active fw-semibold text-white' : '' %>" href="/login">
               Login
             </a>
           </li>
-          <li class="nav-item ms-lg-1">
-            <a class="btn btn-sm btn-nav-primary" href="/register">
+          <li class="nav-item">
+            <a class="btn btn-sm btn-nav-primary d-block d-lg-inline-block text-center py-2 py-lg-1" href="/register">
               Sign Up
             </a>
           </li>
         <% } else { %> 
-          <li class="nav-item me-2">
+          <li class="nav-item">
             <span class="nav-link text-light opacity-75 py-1">
               <%= currentUser.username %>
             </span>
           </li>
           <li class="nav-item">
-            <a class="btn btn-sm btn-outline-light" href="/logout">
+            <a class="btn btn-sm btn-outline-light d-block d-lg-inline-block text-center py-2 py-lg-1" href="/logout">
               Logout
             </a>
           </li>

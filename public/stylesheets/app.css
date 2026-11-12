@@ -1,5 +1,5 @@
 /* ==========================================================================
-   CampHub Minimalist Application Stylesheet
+   CampHub Minimalist Application Stylesheet - Fully Mobile Optimized
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
@@ -23,6 +23,11 @@
   
   --ch-shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.05);
   --ch-shadow-md: 0 4px 16px rgba(15, 23, 42, 0.07);
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -54,9 +59,9 @@ body {
   font-weight: 500;
   font-size: 0.95rem;
   color: rgba(255, 255, 255, 0.75) !important;
-  padding: 0.45rem 0.85rem !important;
+  padding: 0.5rem 0.85rem !important;
   border-radius: var(--ch-radius-sm);
-  transition: color 0.2s ease;
+  transition: color 0.2s ease, background-color 0.2s ease;
 }
 
 .custom-navbar .nav-link:hover {
@@ -69,23 +74,57 @@ body {
   color: white !important;
   font-weight: 600;
   border-radius: var(--ch-radius-sm);
-  padding: 0.4rem 0.95rem;
-  transition: all 0.2s ease;
+  padding: 0.45rem 1rem;
+  transition: background-color 0.2s ease;
 }
 
 .custom-navbar .btn-nav-primary:hover {
   background-color: #40916c;
 }
 
+/* Mobile Navbar Dropdown */
+@media (max-width: 991.98px) {
+  .custom-navbar .navbar-collapse {
+    background: #0f172a;
+    border-radius: var(--ch-radius-md);
+    padding: 1rem 0.5rem;
+    margin-top: 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .custom-navbar .nav-link {
+    padding: 0.75rem 1rem !important;
+    font-size: 1.05rem;
+  }
+}
+
 /* ==========================================================================
    Interactive Maps
    ========================================================================== */
 #map {
+  width: 100%;
+  height: 250px;
   border-radius: var(--ch-radius-lg);
   border: 1px solid var(--ch-border);
   box-shadow: var(--ch-shadow-sm);
   overflow: hidden;
   z-index: 1;
+}
+
+@media (min-width: 768px) {
+  #map {
+    height: 380px;
+  }
+}
+
+.show-map {
+  height: 220px !important;
+}
+
+@media (min-width: 992px) {
+  .show-map {
+    height: 280px !important;
+  }
 }
 
 .leaflet-popup-content-wrapper {
@@ -131,8 +170,15 @@ body {
   position: relative;
   overflow: hidden;
   background-color: #e2e8f0;
-  height: 100%;
-  min-height: 200px;
+  width: 100%;
+  height: 200px;
+}
+
+@media (min-width: 768px) {
+  .camp-card .img-wrapper {
+    height: 100%;
+    min-height: 200px;
+  }
 }
 
 .camp-card .img-wrapper img {
@@ -142,7 +188,13 @@ body {
 }
 
 .camp-card .card-body {
-  padding: 1.25rem;
+  padding: 1.15rem;
+}
+
+@media (min-width: 576px) {
+  .camp-card .card-body {
+    padding: 1.35rem;
+  }
 }
 
 .camp-card .camp-title {
@@ -178,8 +230,14 @@ body {
 }
 
 .show-carousel .carousel-item img {
-  height: 400px;
+  height: 240px;
   object-fit: cover;
+}
+
+@media (min-width: 576px) {
+  .show-carousel .carousel-item img {
+    height: 380px;
+  }
 }
 
 .show-card {
@@ -210,7 +268,13 @@ body {
   border: 1px solid var(--ch-border);
   border-radius: var(--ch-radius-lg);
   box-shadow: var(--ch-shadow-sm);
-  padding: 2rem;
+  padding: 1.25rem;
+}
+
+@media (min-width: 576px) {
+  .form-card {
+    padding: 2rem;
+  }
 }
 
 .form-card .form-label {
@@ -223,8 +287,14 @@ body {
 .form-control, .form-select {
   border-radius: var(--ch-radius-sm);
   border: 1px solid #cbd5e1;
-  padding: 0.6rem 0.85rem;
-  font-size: 0.95rem;
+  padding: 0.65rem 0.85rem;
+  font-size: 16px; /* Prevents iOS Safari auto-zoom on focus */
+}
+
+@media (min-width: 768px) {
+  .form-control, .form-select {
+    font-size: 0.95rem;
+  }
 }
 
 .form-control:focus, .form-select:focus {
@@ -240,6 +310,10 @@ body {
   font-weight: 600;
   border-radius: var(--ch-radius-sm);
   padding: 0.55rem 1.25rem;
+  min-height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   transition: all 0.2s ease;
 }
 
@@ -256,6 +330,10 @@ body {
   font-weight: 600;
   border-radius: var(--ch-radius-sm);
   padding: 0.55rem 1.25rem;
+  min-height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   transition: all 0.2s ease;
 }
 
@@ -282,7 +360,7 @@ body {
 }
 
 .image-delete-overlay {
-  padding: 0.45rem;
+  padding: 0.5rem;
   background: #ffffff;
   border-top: 1px solid var(--ch-border);
   text-align: center;
@@ -324,4 +402,8 @@ body {
 
 .object-fit-cover {
   object-fit: cover;
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }

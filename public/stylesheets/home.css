@@ -38,15 +38,15 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  padding: 2rem 0;
+  padding: 1.5rem 0;
 }
 
-/* Minimal Header Navigation */
+/* Responsive Header Navigation */
 .home-nav-wrapper {
-  background: rgba(15, 23, 42, 0.4);
+  background: rgba(15, 23, 42, 0.6);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 40px;
   padding: 0.65rem 1.4rem;
 }
@@ -64,9 +64,10 @@ body {
   text-decoration: none;
   font-weight: 500;
   font-size: 0.95rem;
-  padding: 0.45rem 0.95rem;
+  padding: 0.5rem 0.95rem;
   border-radius: 20px;
   transition: all 0.2s ease;
+  display: inline-block;
 }
 
 .home-nav-link:hover {
@@ -95,11 +96,11 @@ body {
 /* Minimal Hero Content */
 .hero-content {
   margin: auto 0;
-  padding: 4rem 0;
+  padding: 3rem 0;
 }
 
 .hero-title {
-  font-size: clamp(3rem, 7vw, 5rem);
+  font-size: clamp(2.75rem, 8vw, 5rem);
   font-weight: 800;
   line-height: 1.1;
   letter-spacing: -0.03em;
@@ -108,11 +109,11 @@ body {
 }
 
 .hero-subtitle {
-  font-size: clamp(1.1rem, 2vw, 1.35rem);
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
   font-weight: 400;
   color: rgba(255, 255, 255, 0.85);
-  max-width: 600px;
-  margin: 0 auto 2.4rem;
+  max-width: 580px;
+  margin: 0 auto 2.2rem;
   line-height: 1.6;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
@@ -134,8 +135,10 @@ body {
   text-decoration: none;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   transition: all 0.2s ease;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  min-height: 48px;
 }
 
 .btn-hero-primary:hover {
@@ -149,4 +152,37 @@ body {
 .home-footer {
   padding-top: 1.5rem;
   font-size: 0.88rem;
+}
+
+/* Mobile Optimizations */
+@media (max-width: 767.98px) {
+  .home-container {
+    width: 94%;
+    padding: 1rem 0;
+  }
+  
+  .home-nav-wrapper {
+    border-radius: 20px;
+    padding: 0.6rem 1rem;
+  }
+  
+  .home-nav-link {
+    width: 100%;
+    padding: 0.65rem 0.85rem;
+    border-radius: 10px;
+  }
+  
+  .home-nav-btn {
+    text-align: center;
+    width: 100%;
+  }
+
+  .hero-content {
+    padding: 2.5rem 0;
+  }
+
+  .btn-hero-primary {
+    width: 100%;
+    max-width: 320px;
+  }
 }
