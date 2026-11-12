@@ -3,43 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CampHub</title>
-    <link rel="stylesheet" crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="stylesheets/home.css">
+    <title>CampHub &mdash; Discover & Share Great Campgrounds</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Bootstrap 5.3 & Icons -->
+    <link rel="stylesheet" crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="/stylesheets/home.css">
 </head>
-<body class="d-flex text-center text-white bg-dark">
+<body>
 
-    <div class="cover-container d-flex w-100 h-100 mx-auto flex-column">
-        <header class="mb-auto head">
-            <div class="row">
-                <div class="col-md-6 text-start">
-                    <h3>CampHub</h3>
-                </div>
-                <div class="col-md-6 text-end">
-                    <nav class="nav nav-masthead justify-content-end">
-                        <a class="nav-link active" href="#">Home</a>
-                        <% if(!currentUser) { %>
-                        <a href="/login" class="nav-link">Login</a>
-                       <a href="/register" class="nav-link">Register</a>
-                       <% } else { %>
-                       <a href="/logout" class="nav-link">Logout</a>
-                    
-                            <% } %>
-                    </nav>
-                </div>
+    <div class="home-container">
+        <!-- Floating Glass Header -->
+        <header class="home-nav-wrapper">
+            <div class="d-flex justify-content-between align-items-center">
+                <a href="/" class="home-brand">
+                    <span class="brand-icon"><i class="bi bi-compass"></i></span>
+                    <span>Camp<span style="color:#52b788">Hub</span></span>
+                </a>
+                <nav class="d-flex align-items-center gap-2">
+                    <a class="home-nav-link active" href="/">Home</a>
+                    <a class="home-nav-link" href="/campgrounds">Campgrounds</a>
+                    <% if(!currentUser) { %>
+                        <a href="/login" class="home-nav-link">Login</a>
+                        <a href="/register" class="home-nav-link home-nav-btn">Sign Up</a>
+                    <% } else { %>
+                        <a href="/campgrounds/new" class="home-nav-link d-none d-sm-inline">New Spot</a>
+                        <a href="/logout" class="home-nav-link home-nav-btn">Logout (<%= currentUser.username %>)</a>
+                    <% } %>
+                </nav>
             </div>
         </header>
-        <main class="px-3 my-auto">
-            <h1>CampHub</h1>
-            <p class="lead">Welcome to CampHub <br> jump right in and explore our many campgrounds <br>
-                feel free to share some of your own and comment on others.</p>
-            <a href="/campgrounds" class="btn btn-lg btn-secondary font-weight-bold border-white bg-white">View Campgrounds</a>
+
+        <!-- Main Hero Section -->
+        <main class="hero-content text-center">
+            <div class="hero-badge">
+                <i class="bi bi-fire text-warning me-2"></i>Discover Hidden Campsites Worldwide
+            </div>
+            
+            <h1 class="hero-title">
+                Find Your Next Great Adventure at <span class="text-gradient">CampHub</span>
+            </h1>
+            
+            <p class="hero-subtitle">
+                Explore handpicked campgrounds, browse authentic camper reviews with interactive cluster maps, and share your own outdoor discoveries.
+            </p>
+
+            <div class="hero-cta-group">
+                <a href="/campgrounds" class="btn-hero-primary">
+                    <i class="bi bi-map me-2"></i>Explore Campgrounds
+                </a>
+                <a href="/campgrounds/new" class="btn-hero-secondary">
+                    <i class="bi bi-plus-circle me-2"></i>Share a Campground
+                </a>
+            </div>
+
+            <div class="feature-pills">
+                <span class="feature-pill">
+                    <i class="bi bi-geo-alt-fill text-danger me-2"></i>Interactive Cluster Map
+                </span>
+                <span class="feature-pill">
+                    <i class="bi bi-star-fill text-warning me-2"></i>Camper Ratings & Reviews
+                </span>
+                <span class="feature-pill">
+                    <i class="bi bi-cloud-arrow-up-fill text-info me-2"></i>Community Photo Sharing
+                </span>
+            </div>
         </main>
-        <footer class="mt-auto text-white-50">
-            <p>&copy; 2024 CampHub</p>
+
+        <!-- Footer -->
+        <footer class="home-footer text-center">
+            <p class="mb-0">&copy; <%= new Date().getFullYear() %> CampHub &bull; Built for outdoor enthusiasts</p>
         </footer>
     </div>
 
-    <script crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

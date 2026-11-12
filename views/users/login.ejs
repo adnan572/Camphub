@@ -1,35 +1,51 @@
-<% layout("layouts/boilerplate")  %>
+<% layout("layouts/boilerplate") %>
 
-
-
-<body class="d-flex justify-content-center align-items-start bg-dark text-white">
-
-    <div class="container mt-0">
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                <div class="card shadow">
-                    <img src="https://images.unsplash.com/photo-1455496231601-e6195da1f841?q=80&w=1522&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="card-img-top" alt="">
-                    <div class="card-body">
-                        <h5 class="card-title">Login</h5>
-                        <form action="/login" method="post" class="needs-validation" novalidate>
-                            <div class="mb-3">
-                                <label for="username" class="form-label">Username</label>
-                                <input type="text" id="username" class="form-control" autofocus name="username" required>
-                                <div class="valid-feedback">Looks good!</div>
-                                <div class="invalid-feedback">Please enter your username.</div>
-                            </div>
-                            
-                            <div class="mb-3">
-                                <label for="password" class="form-label">Password</label>
-                                <input type="password" id="password" class="form-control" name="password" required>
-                                <div class="valid-feedback">Looks good!</div>
-                                <div class="invalid-feedback">Please enter your password.</div>
-                            </div>
-                            
-                            <button type="submit" class="btn btn-success w-100">Login</button>
-                        </form>
+<div class="row justify-content-center my-4">
+    <div class="col-md-7 col-lg-5">
+        <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
+            <div style="height: 160px; overflow: hidden; position: relative;">
+                <img src="https://images.unsplash.com/photo-1455496231601-e6195da1f841?q=80&w=1522&auto=format&fit=crop" class="w-100 h-100 object-fit-cover" alt="Campfire under the stars">
+                <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(15,23,42,0.2) 0%, rgba(15,23,42,0.85) 100%);"></div>
+                <div style="position: absolute; bottom: 16px; left: 24px;">
+                    <h2 class="h4 fw-bold text-white mb-0">Welcome Back</h2>
+                    <small class="text-white-50">Log in to manage your campgrounds & reviews</small>
+                </div>
+            </div>
+            
+            <div class="card-body p-4 bg-white">
+                <form action="/login" method="post" class="validated-form" novalidate>
+                    <div class="mb-3">
+                        <label for="username" class="form-label text-secondary small fw-bold text-uppercase">Username</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-light text-secondary"><i class="bi bi-person"></i></span>
+                            <input type="text" id="username" class="form-control" autofocus name="username" placeholder="Your username" required>
+                            <div class="valid-feedback">Looks good!</div>
+                            <div class="invalid-feedback">Please enter your username.</div>
+                        </div>
                     </div>
+                    
+                    <div class="mb-4">
+                        <label for="password" class="form-label text-secondary small fw-bold text-uppercase">Password</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-light text-secondary"><i class="bi bi-lock"></i></span>
+                            <input type="password" id="password" class="form-control" name="password" placeholder="Your password" required>
+                            <div class="valid-feedback">Looks good!</div>
+                            <div class="invalid-feedback">Please enter your password.</div>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-camp-primary w-100 py-2 d-flex align-items-center justify-content-center shadow-sm">
+                        <i class="bi bi-box-arrow-in-right me-2"></i>Log In
+                    </button>
+                </form>
+
+                <div class="text-center mt-4 pt-3 border-top">
+                    <p class="text-secondary small mb-0">
+                        Don't have an account yet? 
+                        <a href="/register" class="text-success fw-bold text-decoration-none">Create an account</a>
+                    </p>
                 </div>
             </div>
         </div>
     </div>
+</div>

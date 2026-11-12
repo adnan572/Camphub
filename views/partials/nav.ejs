@@ -1,37 +1,56 @@
-<nav class="navbar sticky-top navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">CampHub</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
+<nav class="navbar custom-navbar sticky-top navbar-expand-lg" data-bs-theme="dark">
+  <div class="container">
+    <a class="navbar-brand" href="/campgrounds">
+      <span class="brand-badge"><i class="bi bi-compass"></i></span>
+      <span>Camp<span style="color:#52b788">Hub</span></span>
+    </a>
+    <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link <%= (typeof currentRoute !== 'undefined' && currentRoute === '/') ? 'active fw-semibold text-white' : '' %>" href="/">
+            <i class="bi bi-house-door me-1"></i>Home
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link <%= (typeof currentRoute !== 'undefined' && currentRoute === '/campgrounds') ? 'active fw-semibold text-white' : '' %>" href="/campgrounds">
+            <i class="bi bi-map me-1"></i>Campgrounds
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link <%= (typeof currentRoute !== 'undefined' && currentRoute === '/campgrounds/new') ? 'active fw-semibold text-white' : '' %>" href="/campgrounds/new">
+            <i class="bi bi-plus-circle me-1"></i>New Campground
+          </a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-1">
+        <% if(!currentUser) { %>
           <li class="nav-item">
-            <a class="nav-link" href="/">Home</a>
+            <a class="nav-link <%= (typeof currentRoute !== 'undefined' && currentRoute === '/login') ? 'active fw-semibold text-white' : '' %>" href="/login">
+              <i class="bi bi-box-arrow-in-right me-1"></i>Login
+            </a>
+          </li>
+          <li class="nav-item ms-lg-1">
+            <a class="btn btn-sm btn-nav-primary d-inline-flex align-items-center" href="/register">
+              <i class="bi bi-person-plus me-1"></i>Sign Up
+            </a>
+          </li>
+        <% } else { %> 
+          <li class="nav-item me-2">
+            <span class="nav-link text-light opacity-75 d-inline-flex align-items-center py-1">
+              <i class="bi bi-person-circle fs-5 me-1 text-success"></i>
+              <span class="fw-medium"><%= currentUser.username %></span>
+            </span>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/campgrounds">Campgrounds</a>
+            <a class="btn btn-sm btn-outline-light d-inline-flex align-items-center" href="/logout">
+              <i class="bi bi-box-arrow-right me-1"></i>Logout
+            </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/campgrounds/new">New Campground</a>
-          </li>
-          
-        </ul>
-        <ul class="navbar-nav ms-auto">
-
-         <% if(!currentUser) { %>
-          <li  class = "nav-item">
-            <a class="nav-link" href="/login">Login</a>
-          </li>
-          <li  class = "nav-item">
-            <a class="nav-link" href="/register">Signup</a>
-          </li>
-          <% } else { %> 
-          <li  class = "nav-item">
-            <a class="nav-link" href="/logout">Logout</a>
-          </li>
-           <% } %>
-        </ul>
-      </div>
+        <% } %>
+      </ul>
     </div>
-  </nav>
+  </div>
+</nav>

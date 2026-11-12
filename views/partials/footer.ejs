@@ -1,5 +1,16 @@
-<footer class="footer bg-dark py-3 mt-auto">
-    <div class="container">
-        <span class="text-secondary">&copy; CampHub 2024</span>
+<footer class="custom-footer mt-auto">
+  <div class="container">
+    <div class="d-flex flex-wrap justify-content-between align-items-center py-2 gap-3">
+      <div class="d-flex align-items-center gap-2">
+        <span class="brand-badge" style="width:26px; height:26px; font-size:0.85rem;"><i class="bi bi-compass"></i></span>
+        <span class="fw-bold text-white">Camp<span style="color:#52b788">Hub</span></span>
+        <span class="text-secondary ms-2">&copy; <%= new Date().getFullYear() %> CampHub, Inc.</span>
+      </div>
+      <ul class="nav list-unstyled d-flex align-items-center gap-3 mb-0">
+        <li><a class="text-secondary text-decoration-none hover-white" href="/"><i class="bi bi-house-door me-1"></i>Home</a></li>
+        <li><a class="text-secondary text-decoration-none hover-white" href="/campgrounds"><i class="bi bi-map me-1"></i>Campgrounds</a></li>
+        <li><a class="text-secondary text-decoration-none hover-white" href="/campgrounds/new"><i class="bi bi-plus-circle me-1"></i>Add Spot</a></li>
+      </ul>
     </div>
+  </div>
 </footer>

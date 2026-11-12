@@ -1,12 +1,34 @@
 <% layout("layouts/boilerplate") %>
-<div class="d-flex align-items-start justify-content-center vh-100">
-    <div class="col-6">
-        <div class="alert alert-danger text-center" role="alert">
-            <h4 class="alert-heading"><%= err.message %></h4>
-            <% if(process.env.NODE_ENV !== "production") { %>
-            <p><%= err.stack %></p>
+
+<div class="row justify-content-center my-5">
+    <div class="col-md-8 col-lg-6">
+        <div class="card border-0 shadow-lg rounded-4 overflow-hidden text-center p-4 p-md-5 bg-white">
+            <div class="mb-3">
+                <span class="d-inline-flex align-items-center justify-content-center rounded-circle bg-danger-subtle text-danger" style="width: 72px; height: 72px; font-size: 2rem;">
+                    <i class="bi bi-exclamation-octagon-fill"></i>
+                </span>
+            </div>
+            
+            <h1 class="h3 fw-bold text-dark mb-2">Something Went Wrong</h1>
+            <p class="text-secondary mb-4"><%= err.message || "An unexpected error occurred." %></p>
+            
+            <div class="d-flex justify-content-center gap-2 mb-3">
+                <a href="/campgrounds" class="btn btn-camp-primary d-inline-flex align-items-center">
+                    <i class="bi bi-compass me-2"></i>Back to Campgrounds
+                </a>
+                <a href="/" class="btn btn-camp-secondary d-inline-flex align-items-center">
+                    <i class="bi bi-house me-2"></i>Home
+                </a>
+            </div>
+
+            <% if(process.env.NODE_ENV !== "production" && err.stack) { %>
+                <div class="text-start mt-4 pt-3 border-top">
+                    <details class="small text-muted">
+                        <summary class="cursor-pointer text-danger fw-semibold">View Error Stack Details</summary>
+                        <pre class="bg-light p-3 rounded mt-2 border text-dark" style="max-height: 250px; overflow-y: auto; font-size: 0.8rem;"><%= err.stack %></pre>
+                    </details>
+                </div>
             <% } %>
         </div>
     </div>
 </div>
-
