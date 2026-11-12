@@ -1,5 +1,5 @@
 /* ==========================================================================
-   CampHub Modern Application Stylesheet
+   CampHub Minimalist Application Stylesheet
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
@@ -7,15 +7,9 @@
 :root {
   --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   
-  /* Brand Palette - Modern Outdoor Explorer */
   --ch-primary: #1e5638;
   --ch-primary-hover: #143d27;
   --ch-primary-light: #e8f5ec;
-  --ch-primary-rgb: 30, 86, 56;
-  
-  --ch-accent: #e76f51;
-  --ch-accent-hover: #cf5538;
-  --ch-accent-light: #fdf0ec;
   
   --ch-dark: #0f172a;
   --ch-surface: #ffffff;
@@ -23,15 +17,12 @@
   --ch-border: #e2e8f0;
   --ch-text-muted: #64748b;
   
-  /* Geometry & Shadows */
   --ch-radius-sm: 8px;
   --ch-radius-md: 12px;
   --ch-radius-lg: 16px;
-  --ch-radius-xl: 22px;
   
-  --ch-shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.05), 0 1px 2px rgba(15, 23, 42, 0.03);
-  --ch-shadow-md: 0 4px 20px -2px rgba(15, 23, 42, 0.08), 0 2px 6px -1px rgba(15, 23, 42, 0.04);
-  --ch-shadow-lg: 0 12px 32px -4px rgba(15, 23, 42, 0.12), 0 4px 12px -2px rgba(15, 23, 42, 0.05);
+  --ch-shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.05);
+  --ch-shadow-md: 0 4px 16px rgba(15, 23, 42, 0.07);
 }
 
 body {
@@ -46,66 +37,44 @@ body {
    Navigation Bar
    ========================================================================== */
 .custom-navbar {
-  background: rgba(15, 23, 42, 0.94) !important;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: #0f172a !important;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   padding: 0.85rem 0;
-  transition: all 0.25s ease;
 }
 
 .custom-navbar .navbar-brand {
   font-weight: 800;
-  font-size: 1.35rem;
+  font-size: 1.3rem;
   letter-spacing: -0.02em;
   color: #ffffff !important;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
   text-decoration: none;
-}
-
-.custom-navbar .navbar-brand .brand-badge {
-  background: linear-gradient(135deg, #2d6a4f, #52b788);
-  width: 32px;
-  height: 32px;
-  border-radius: 9px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 1.05rem;
-  box-shadow: 0 4px 12px rgba(45, 106, 79, 0.4);
 }
 
 .custom-navbar .nav-link {
   font-weight: 500;
   font-size: 0.95rem;
   color: rgba(255, 255, 255, 0.75) !important;
-  padding: 0.5rem 0.95rem !important;
+  padding: 0.45rem 0.85rem !important;
   border-radius: var(--ch-radius-sm);
-  transition: all 0.2s ease;
+  transition: color 0.2s ease;
 }
 
 .custom-navbar .nav-link:hover {
   color: #ffffff !important;
-  background: rgba(255, 255, 255, 0.08);
 }
 
 .custom-navbar .btn-nav-primary {
   background-color: #2d6a4f;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: none;
   color: white !important;
   font-weight: 600;
   border-radius: var(--ch-radius-sm);
-  padding: 0.45rem 1rem;
+  padding: 0.4rem 0.95rem;
   transition: all 0.2s ease;
 }
 
 .custom-navbar .btn-nav-primary:hover {
   background-color: #40916c;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(45, 106, 79, 0.35);
 }
 
 /* ==========================================================================
@@ -113,16 +82,16 @@ body {
    ========================================================================== */
 #map {
   border-radius: var(--ch-radius-lg);
-  box-shadow: var(--ch-shadow-md);
   border: 1px solid var(--ch-border);
+  box-shadow: var(--ch-shadow-sm);
   overflow: hidden;
   z-index: 1;
 }
 
 .leaflet-popup-content-wrapper {
   border-radius: var(--ch-radius-md) !important;
-  box-shadow: var(--ch-shadow-lg) !important;
-  padding: 0.3rem !important;
+  box-shadow: var(--ch-shadow-md) !important;
+  padding: 0.2rem !important;
   font-family: var(--font-sans);
 }
 
@@ -139,7 +108,6 @@ body {
 
 .leaflet-popup-content a:hover {
   color: var(--ch-primary-hover);
-  text-decoration: underline;
 }
 
 /* ==========================================================================
@@ -151,13 +119,12 @@ body {
   border-radius: var(--ch-radius-lg);
   overflow: hidden;
   box-shadow: var(--ch-shadow-sm);
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .camp-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--ch-shadow-lg);
-  border-color: rgba(45, 106, 79, 0.25);
+  border-color: #cbd5e1;
+  box-shadow: var(--ch-shadow-md);
 }
 
 .camp-card .img-wrapper {
@@ -165,65 +132,40 @@ body {
   overflow: hidden;
   background-color: #e2e8f0;
   height: 100%;
-  min-height: 220px;
+  min-height: 200px;
 }
 
 .camp-card .img-wrapper img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.35s ease;
-}
-
-.camp-card:hover .img-wrapper img {
-  transform: scale(1.03);
-}
-
-.camp-card .price-tag {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  background: rgba(15, 23, 42, 0.82);
-  backdrop-filter: blur(8px);
-  color: #ffffff;
-  padding: 0.35rem 0.75rem;
-  border-radius: 30px;
-  font-weight: 700;
-  font-size: 0.85rem;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .camp-card .card-body {
-  padding: 1.4rem;
+  padding: 1.25rem;
 }
 
 .camp-card .camp-title {
   font-weight: 700;
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   color: var(--ch-dark);
-  margin-bottom: 0.35rem;
+  margin-bottom: 0.25rem;
 }
 
 .camp-card .camp-location {
   color: var(--ch-text-muted);
   font-size: 0.88rem;
-  font-weight: 500;
-  display: flex;
-  align-items: center;
-  gap: 0.35rem;
-  margin-bottom: 0.75rem;
 }
 
 .camp-card .camp-desc {
   color: #475569;
   font-size: 0.92rem;
-  line-height: 1.55;
+  line-height: 1.5;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  margin-bottom: 1.1rem;
+  margin-bottom: 1rem;
 }
 
 /* ==========================================================================
@@ -232,13 +174,11 @@ body {
 .show-carousel {
   border-radius: var(--ch-radius-lg);
   overflow: hidden;
-  box-shadow: var(--ch-shadow-md);
-  margin-bottom: 1.5rem;
   background: #000;
 }
 
 .show-carousel .carousel-item img {
-  height: 420px;
+  height: 400px;
   object-fit: cover;
 }
 
@@ -256,72 +196,50 @@ body {
   font-size: 0.95rem;
 }
 
-/* Review Card */
 .review-card {
   background: var(--ch-surface);
   border: 1px solid var(--ch-border);
   border-radius: var(--ch-radius-md);
-  box-shadow: var(--ch-shadow-sm);
-  transition: all 0.2s ease;
-}
-
-.review-card:hover {
-  box-shadow: var(--ch-shadow-md);
-  border-color: #cbd5e1;
-}
-
-.avatar-circle {
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #2d6a4f, #52b788);
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  font-size: 0.9rem;
 }
 
 /* ==========================================================================
-   Modern Forms
+   Minimal Forms
    ========================================================================== */
 .form-card {
   background: var(--ch-surface);
   border: 1px solid var(--ch-border);
-  border-radius: var(--ch-radius-xl);
-  box-shadow: var(--ch-shadow-md);
-  padding: 2.2rem;
+  border-radius: var(--ch-radius-lg);
+  box-shadow: var(--ch-shadow-sm);
+  padding: 2rem;
 }
 
 .form-card .form-label {
   font-weight: 600;
   font-size: 0.9rem;
   color: #334155;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.35rem;
 }
 
 .form-control, .form-select {
   border-radius: var(--ch-radius-sm);
   border: 1px solid #cbd5e1;
-  padding: 0.65rem 0.95rem;
+  padding: 0.6rem 0.85rem;
   font-size: 0.95rem;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .form-control:focus, .form-select:focus {
   border-color: #2d6a4f;
-  box-shadow: 0 0 0 3px rgba(45, 106, 79, 0.18);
+  box-shadow: 0 0 0 3px rgba(45, 106, 79, 0.15);
 }
 
-/* Modern Buttons */
+/* Minimal Buttons */
 .btn-camp-primary {
   background-color: #2d6a4f;
-  border-color: #2d6a4f;
+  border: 1px solid #2d6a4f;
   color: #ffffff;
   font-weight: 600;
   border-radius: var(--ch-radius-sm);
-  padding: 0.65rem 1.4rem;
+  padding: 0.55rem 1.25rem;
   transition: all 0.2s ease;
 }
 
@@ -329,8 +247,6 @@ body {
   background-color: #1b4332;
   border-color: #1b4332;
   color: #ffffff;
-  transform: translateY(-1px);
-  box-shadow: 0 6px 16px rgba(45, 106, 79, 0.28);
 }
 
 .btn-camp-secondary {
@@ -339,7 +255,7 @@ body {
   color: #334155;
   font-weight: 600;
   border-radius: var(--ch-radius-sm);
-  padding: 0.65rem 1.25rem;
+  padding: 0.55rem 1.25rem;
   transition: all 0.2s ease;
 }
 
@@ -352,17 +268,15 @@ body {
    Image Delete Gallery (Edit Page)
    ========================================================================== */
 .image-delete-card {
-  position: relative;
   border-radius: var(--ch-radius-md);
   overflow: hidden;
   border: 1px solid var(--ch-border);
   background: #f1f5f9;
-  transition: all 0.2s ease;
 }
 
 .image-delete-card img {
   width: 100%;
-  height: 120px;
+  height: 110px;
   object-fit: cover;
   display: block;
 }
@@ -371,13 +285,7 @@ body {
   padding: 0.45rem;
   background: #ffffff;
   border-top: 1px solid var(--ch-border);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.4rem;
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: #dc2626;
+  text-align: center;
 }
 
 /* ==========================================================================
@@ -387,7 +295,6 @@ body {
   border-radius: var(--ch-radius-md);
   border: none;
   font-weight: 500;
-  box-shadow: var(--ch-shadow-sm);
 }
 
 .alert-success {
@@ -407,21 +314,12 @@ body {
   background-color: #0f172a;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   color: #94a3b8;
-  padding: 1.8rem 0;
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   margin-top: auto;
-}
-
-.hover-white {
-  transition: color 0.2s ease;
 }
 
 .hover-white:hover {
   color: #ffffff !important;
-}
-
-.cursor-pointer {
-  cursor: pointer;
 }
 
 .object-fit-cover {
